@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+*.tmp
+undo_log.json
+config.json
+venv/
+.idea/
+.vscode/
+$RECYCLE.BIN/
+System Volume Information/
+Arkistot_ja_Paketit
+Dokumentit
+Ilman_Paatetta
+Jarjestelma_ja_Asetukset
+Järjestelmä_ja_Sekalaiset
+Koodi_ja_Skriptit
+Kuvat_ja_Grafiikka
+kvantti_testi
+Media_Audio
+Media_Video
+Tiedosto
+Ohjelmat_ja_Suoritettavat
