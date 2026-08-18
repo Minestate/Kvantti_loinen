@@ -1,0 +1,118 @@
+[
+    {
+        "lahde": "F:\\alikansio\\benchmark.c",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\benchmark.c"
+    },
+    {
+        "lahde": "F:\\backup.c",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\backup.c"
+    },
+    {
+        "lahde": "F:\\backup.o",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\backup.o"
+    },
+    {
+        "lahde": "F:\\benchmark.o",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\benchmark.o"
+    },
+    {
+        "lahde": "F:\\boot.asm",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\boot.asm"
+    },
+    {
+        "lahde": "F:\\boot.bin",
+        "kohde": "F:\\Ohjelmat_ja_Suoritettavat\\boot.bin"
+    },
+    {
+        "lahde": "F:\\config.json",
+        "kohde": "F:\\Koodi_ja_Skriptit\\config_uusi.json"
+    },
+    {
+        "lahde": "F:\\hex_viewer.c",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\hex_viewer.c"
+    },
+    {
+        "lahde": "F:\\hex_viewer.o",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\hex_viewer.o"
+    },
+    {
+        "lahde": "F:\\html_parser.c",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\html_parser.c"
+    },
+    {
+        "lahde": "F:\\html_parser.h",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\html_parser.h"
+    },
+    {
+        "lahde": "F:\\html_parser.o",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\html_parser.o"
+    },
+    {
+        "lahde": "F:\\input_driver.c",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\input_driver.c"
+    },
+    {
+        "lahde": "F:\\input_driver.o",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\input_driver.o"
+    },
+    {
+        "lahde": "F:\\isoaly_core.h",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\isoaly_core.h"
+    },
+    {
+        "lahde": "F:\\isoaly_kernel.c",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\isoaly_kernel.c"
+    },
+    {
+        "lahde": "F:\\isoaly_os.img",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\isoaly_os.img"
+    },
+    {
+        "lahde": "F:\\kernel.o",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\kernel.o"
+    },
+    {
+        "lahde": "F:\\kernel_entry.asm",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\kernel_entry.asm"
+    },
+    {
+        "lahde": "F:\\kernel_entry.o",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\kernel_entry.o"
+    },
+    {
+        "lahde": "F:\\keyboard.c",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\keyboard.c"
+    },
+    {
+        "lahde": "F:\\kvantti_loinen.py",
+        "kohde": "F:\\Koodi_ja_Skriptit\\kvantti_loinen_uusi.py"
+    },
+    {
+        "lahde": "F:\\mouse.c",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\mouse.c"
+    },
+    {
+        "lahde": "F:\\nano.c",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\nano.c"
+    },
+    {
+        "lahde": "F:\\nano.o",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\nano.o"
+    },
+    {
+        "lahde": "F:\\system_kernel.bin",
+        "kohde": "F:\\Ohjelmat_ja_Suoritettavat\\system_kernel.bin"
+    },
+    {
+        "lahde": "F:\\sys_module.c",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\sys_module.c"
+    },
+    {
+        "lahde": "F:\\sys_module.o",
+        "kohde": "F:\\Järjestelmä_ja_Sekalaiset\\sys_module.o"
+    },
+    {
+        "lahde": "F:\\undo_log.json",
+        "kohde": "F:\\Koodi_ja_Skriptit\\undo_log_uusi.json"
+    }
+]

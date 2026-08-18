@@ -1,0 +1,14 @@
+/* Tämä on kommentti, jota selain ei lue */
+
+body {
+    background-color: #1a1a1a; /* Taustaväri tummanharmaaksi */
+    color: #ffffff;           /* Tekstin väri valkoiseksi */
+    font-family: monospace;   /* Käytetään konekirjoitusfonttia */
+}
+
+.painike {
+    border: 2px solid #0f0;   /* Vihreä reunus */
+    padding: 10px;            /* Tilaa tekstin ympärillä */
+}<head>
+    <link rel="stylesheet" href="tyyli.css">
+</head>

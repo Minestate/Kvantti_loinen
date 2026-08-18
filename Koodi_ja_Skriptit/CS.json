@@ -1,0 +1,7 @@
+{
+  "name": "CS2 Smart Bot",
+  "version": "1.0.0",
+  "author": "Oma Nimi",
+  "description": "Älykäs C#-pohjainen botinohjain CS2:lle",
+  "main": "CS2SmartBot.CS2SmartBotPlugin"
+}

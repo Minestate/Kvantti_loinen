@@ -1,0 +1,90 @@
+{
+    "FORMAATIT": {
+        "Dokumentit": [
+            ".pdf",
+            ".docx",
+            ".doc",
+            ".xlsx",
+            ".xls",
+            ".pptx",
+            ".txt",
+            ".csv",
+            ".rtf",
+            ".odt",
+            ".md"
+        ],
+        "Kuvat_ja_Grafiikka": [
+            ".png",
+            ".jpg",
+            ".jpeg",
+            ".gif",
+            ".svg",
+            ".webp",
+            ".ico",
+            ".bmp",
+            ".psd"
+        ],
+        "Media_Audio": [
+            ".mp3",
+            ".wav",
+            ".flac",
+            ".aac",
+            ".ogg",
+            ".m4a"
+        ],
+        "Media_Video": [
+            ".mp4",
+            ".mkv",
+            ".avi",
+            ".mov",
+            ".wmv",
+            ".webm"
+        ],
+        "Arkistot_ja_Paketit": [
+            ".zip",
+            ".rar",
+            ".7z",
+            ".tar",
+            ".gz",
+            ".iso",
+            ".apk",
+            ".jar",
+            ".msi"
+        ],
+        "Koodi_ja_Skriptit": [
+            ".py",
+            ".js",
+            ".ts",
+            ".html",
+            ".css",
+            ".json",
+            ".xml",
+            ".sql",
+            ".sh",
+            ".ps1",
+            ".bat",
+            ".cs",
+            ".cpp",
+            ".yml"
+        ],
+        "Ohjelmat_ja_Suoritettavat": [
+            ".exe",
+            ".bin"
+        ],
+        "Jarjestelma_ja_Asetukset": [
+            ".sys",
+            ".dll",
+            ".dat",
+            ".db",
+            ".log",
+            ".ini",
+            ".cfg"
+        ]
+    },
+    "OHITA_KANSIOT": [
+        "System Volume Information",
+        "$RECYCLE.BIN",
+        ".git",
+        "node_modules"
+    ]
+}

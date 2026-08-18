@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat_boxing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <style>
+    body { font-family: monospace; margin: 0; padding-bottom: 4rem; background: #0d1117; color: #c9d1d9; }
+    #login-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:#0d1117; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:2000; }
+    #custom-name-input { padding:10px; width:200px; border-radius:5px; margin-bottom:10px; background:#161b22; border:1px solid #30363d; color:white; }
+    #user-info { background: #161b22; padding: 0.8rem; border-bottom: 1px solid #30363d; font-weight: bold; color: #58a6ff; text-align: center; }
+    #messages { list-style-type: none; margin: 0; padding: 1rem; }
+    #messages > li { padding: 0.8rem 1rem; margin-bottom: 0.5rem; background: #161b22; border: 1px solid #30363d; border-radius: 8px; }
+    .msg-header { display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
+    .timer { color: #f85149; font-weight: bold; }
+    .process-log { font-size: 0.75em; color: #8b949e; margin-top: 0.4rem; display: none; }
+    #form { background: #161b22; padding: 0.5rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; border-top: 1px solid #30363d; }
+    #input { border: 1px solid #30363d; padding: 0.8rem; flex-grow: 1; border-radius: 2rem; background: #0d1117; color: #fff; }
+    button { padding: 0 1.5rem; margin-left: 0.5rem; border-radius: 2rem; background: #238636; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <div id="login-overlay">
+    <h2 style="color:#58a6ff;">Chat_boxing</h2>
+    <input id="custom-name-input" placeholder="Valitse nimimerkki..." maxlength="15">
+    <button id="join-btn">Astun kehään</button>
+    <p style="color:#8b949e; cursor:pointer; font-size:0.8em;" onclick="setRandomName()">...tai arvo nimi</p>
+  </div>
+
+  <div id="user-info">Olet: <span id="my-name">...</span></div>
+  <ul id="messages"></ul>
+  
+  <form id="form">
+    <input id="input" autocomplete="off" placeholder="Salainen viesti (vähintään 6 sanaa)..." maxlength="5000" />
+    <button>Lähetä</button>
+  </form>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+    var myUsername = "";
+    const SALA_AVAIN = "SalainenAvain12345";
+
+    // Botin reaaliaikaisten päivitysten kuuntelija
+    socket.on('bot update', function(data) {
+      console.log('Uutta dataa botilta:', data);
+      
+      const item = document.createElement('li');
+      item.textContent = `[BOT]: Analysoitu ${data.source_url} (Bannerit: ${data.matched_banners ? data.matched_banners.length : 0}, Popups: ${data.detected_popups_and_overlays ? data.detected_popups_and_overlays.length : 0})`;
+      
+      const messages = document.getElementById('messages');
+      if (messages) {
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+    });
+
+    function joinChat(name) {
+      myUsername = name || generateRandomName();
+      document.getElementById('my-name').innerText = myUsername;
+      document.getElementById('login-overlay').style.display = 'none';
+    }
+
+    function generateRandomName() {
+      const adj = ["Iloinen", "Nopea", "Viisas", "Hiljainen"];
+      const animal = ["Kissa", "Koira", "Panda", "Tiikeri"];
+      return adj[Math.floor(Math.random()*adj.length)] + animal[Math.floor(Math.random()*animal.length)] + Math.floor(Math.random()*99);
+    }
+
+    document.getElementById('join-btn').onclick = () => joinChat(document.getElementById('custom-name-input').value);
+    function setRandomName() { joinChat(generateRandomName()); }
+
+    document.getElementById('form').onsubmit = (e) => {
+      e.preventDefault();
+      var input = document.getElementById('input');
+      var teksti = input.value.trim();
+      var sanat = teksti.split(/\s+/).filter(w => w.length > 0);
+
+      if (sanat.length < 6) {
+        alert("Viestissä on oltava vähintään 6 sanaa! (Nyt: " + sanat.length + ")");
+        return;
+      }
+
+      var viestiData = { user: myUsername, text: teksti };
+      var kryptattu = CryptoJS.AES.encrypt(JSON.stringify(viestiData), SALA_AVAIN).toString();
+      socket.emit('chat message', kryptattu);
+      input.value = '';
+    };
+
+    socket.on('chat message', (kryptattu) => {
+      var bytes = CryptoJS.AES.decrypt(kryptattu, SALA_AVAIN);
+      var data = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+      var item = document.createElement('li');
+      item.innerHTML = `<div class="msg-header"><span style="color:#79c0ff;">${data.user}</span><span class="timer">21s</span></div><div>${data.text}</div><div class="process-log"></div>`;
+      document.getElementById('messages').appendChild(item);
+      
+      let sec = 21;
+      let timer = setInterval(() => {
+        sec--;
+        item.querySelector('.timer').innerText = sec + "s";
+        if(sec <= 0) {
+          clearInterval(timer);
+          suoritaKatoaminen(item);
+        }
+      }, 1000);
+    });
+
+    function suoritaKatoaminen(elem) {
+      elem.querySelector('.timer').innerText = "KÄSITTELYSSÄ";
+      let log = elem.querySelector('.process-log');
+      log.style.display = 'block';
+      setTimeout(() => { log.innerHTML = "[A] Pakattu 1kt säiliöön..."; }, 500);
+      setTimeout(() => { log.innerHTML = "[B] Kryptattu piilotiedostoon..."; }, 1700);
+      setTimeout(() => { log.innerHTML = "[C] Syvätiiviste luotu."; elem.style.opacity = 0; setTimeout(() => elem.remove(), 500); }, 2900);
+    }
+  </script>
+</body>
+</html>
