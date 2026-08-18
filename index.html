@@ -35,7 +35,7 @@
     var socket = io();
     var myUsername = "";
     const SALA_AVAIN = "SalainenAvain12345";
-    const ELINKAARI = 21; // Ajastin sekunteina
+    const ELINKAARI = 21; // Muistinhallinnan ajastin sekunteina
 
     document.addEventListener("DOMContentLoaded", () => {
       myUsername = "QEMU_Node_" + Math.floor(Math.random() * 999);
@@ -64,8 +64,6 @@
       var data = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
       
       var item = document.createElement('li');
-      
-      // Luodaan viestirakenne, johon on upotettu ajastin ja peruutusnainike
       item.innerHTML = `
         <div class="msg-header">
           <span style="color:#79c0ff;">${data.user}</span>
@@ -85,7 +83,6 @@
       let undoBtn = item.querySelector('.undo-btn');
       let timerSpan = item.querySelector('.timer');
 
-      // Ajastinlogiikka
       let timer = setInterval(() => {
         if (cancelled) return;
         sec--;
@@ -99,16 +96,14 @@
         }
       }, 1000);
 
-      // Peruutusnapin toiminnallisuus
       undoBtn.onclick = () => {
         cancelled = true;
         clearInterval(timer);
-        undoBtn.remove(); // Poistetaan nappi käytöstä
+        undoBtn.remove();
         timerSpan.innerText = "PERUTTU";
-        timerSpan.style.color = "#3fb950"; // Muutetaan vihreäksi merkiksi onnistumisesta
+        timerSpan.style.color = "#3fb950";
         item.style.borderColor = "#238636";
         
-        // Palautetaan elementti pysyvään tilaan hetken kuluttua
         setTimeout(() => {
           timerSpan.style.display = 'none';
         }, 1500);
@@ -116,7 +111,6 @@
     });
 
     function suoritaKatoaminen(elem) {
-      // Poistetaan peruutusnappi varmuuden vuoksi, jos sitä ei ehditty käyttää
       let btn = elem.querySelector('.undo-btn');
       if (btn) btn.remove();
 
